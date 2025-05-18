@@ -8,14 +8,14 @@
       <div class="col-md-12">
         <div class="card">
           <div class="card-header">
-            <div class="card-title">College</div> 
+            <div class="card-title">Organization members</div> 
             <div class="card-category">Page Subtitle</div>
           </div>
           <br/>
           <div class="col-md-12 row">
             <div class="col-md-6">
                 <br/>
-              <form class="navbar-left navbar-form nav-search mr-md-3" action="{% url 'college-list' %}">
+              <form class="navbar-left navbar-form nav-search mr-md-3" action="{% url 'orgmember-list' %}">
                 <div class="input-group">
                   <input type="text" placeholder="Search ..." class="form-control" name="q" />
                   <div class="input-group-append">
@@ -30,7 +30,7 @@
             <div class="col-md-6">
               <div class="pull-right">
                 <br/>
-                <a href="{% url 'college-add' %}" class="btn btn-success btn-rounded">Add College</a>
+                <a href="{% url 'orgmember-add' %}" class="btn btn-success btn-rounded">Add Member</a>
               </div>
             </div>
           </div>
@@ -38,16 +38,21 @@
             <table class="table table-striped mt-3">
               <thead>
                 <tr>
-                  <th scope="col">College</th>
+                  <th scope="col">Student</th>
+                  <th scope="col">Organization</th>
+                  <th scope="col">Date joined</th>
+                  <th scope="col">Action</th>
                 </tr>
               </thead>
               <tbody>
                 {% for object in object_list %}
                 <tr>
-                  <td>{{ object.college_name }}</td>
+                  <td>{{ object.student }}</td>
+                  <td>{{ object.organization }}</td>
+                  <td>{{ object.date_joined }}</td> 
                   <td>
-                    <a href="college/{{ object.id }}">Edit</a>
-                    <a href="college/{{ object.id }}/delete" class="text-danger">Delete</a>
+                    <a href="org_member/{{ object.id }}">Edit</a>
+                    <a href="org_member/{{ object.id }}/delete" class="text-danger">Delete</a>
                 </td>
                 </td>
               </tr>
